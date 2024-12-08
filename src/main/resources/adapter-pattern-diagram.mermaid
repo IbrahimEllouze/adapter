@@ -1,0 +1,19 @@
+classDiagram
+    class Client
+    class ClientInterface {
+        <<interface>>
+        + method(Data)
+    }
+    Client --> ClientInterface : uses
+    
+    class Adapter {
+        -adaptee Service
+        + method(Data)
+    }
+    
+    class Service {
+        + service_method(special Data)
+    }
+    
+    Adapter --> Service : adapts
+    Adapter ..|> ClientInterface : implements
